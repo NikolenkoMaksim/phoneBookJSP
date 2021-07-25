@@ -5,9 +5,6 @@ import ru.academits.nikolenko.dao.ContactDao;
 import ru.academits.nikolenko.model.Contact;
 import org.apache.commons.lang.StringUtils;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class ContactService {
@@ -65,7 +62,6 @@ public class ContactService {
     }
 
     public void saveLastContact(Contact contact) {
-
         contactDao.saveLastContact(contact);
     }
 
@@ -99,7 +95,6 @@ public class ContactService {
         }
 
         if (deletedAll) {
-            System.out.println("Количетсво контактов: " + contactDao.getAllContacts().toArray().length);
             return new DeleteResults(deletedAll, "");
         }
 

@@ -10,6 +10,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created by Anna on 17.06.2017.
+ * Modified by Maksim on 24.07.2021
  */
 public class ContactDao {
     private List<Contact> contactList = new ArrayList<>();

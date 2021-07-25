@@ -6,14 +6,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import ru.academits.nikolenko.PhoneBook;
 import ru.academits.nikolenko.coverter.ContactsIdsConverter;
-import ru.academits.nikolenko.model.Contact;
 import ru.academits.nikolenko.service.ContactService;
-import ru.academits.nikolenko.service.ContactValidation;
 import ru.academits.nikolenko.service.DeleteResults;
 
-import java.io.OutputStream;
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class DeleteContactsServlet extends HttpServlet {
@@ -23,11 +18,10 @@ public class DeleteContactsServlet extends HttpServlet {
 
     private ContactService contactService = PhoneBook.contactService;
 
-
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         try {
             String contactsIdsString = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
-            int [] contactsIds = contactsIdsConverter.getIds(contactsIdsString);
+            int[] contactsIds = contactsIdsConverter.getIds(contactsIdsString);
 
             DeleteResults deleteResults = contactService.deleteContacts(contactsIds);
             contactService.saveLastDeleteResults(deleteResults);
